@@ -17,19 +17,22 @@
             Bienvenue dans une nouvelle ère : Antika 
         </h2>
         <br />
-        <table align="center" border="0" width="40%">
-              <tr>
+        <h:form>
+            <table align="center" border="0" width="40%">
+                <tr>
                     <th>
                         <p:commandButton value="Dieux" />
                     </th>
                     <th>
-                        <p:commandButton value="Personnage"/>
+                        <p:commandButton value="Personnage"  action="#{mainControler.goToCreatePerso()}"/>
                     </th>
                   <th>
                         <p:commandButton value="Race"/>
                     </th>
                 </tr>
             </table>
+            
+        </h:form>
     </h:body>
 </html>
 
