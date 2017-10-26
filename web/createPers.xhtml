@@ -6,20 +6,19 @@
     <h:head>
         <title>Antika</title>
         <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
+        
+       
     </h:head>
     <h:body>
-        <h3>Basic Ring</h3>
-        <p:dataList value="#{raceCtrlr.races}" var="race">
-            #{race.nom}
-        </p:dataList>
+        <h3>Choisis ton héros !</h3>  
         
-        
-        <p:ring  value="#{raceCtrlr.races}" var="race">
-            <p:outputPanel style="text-align: center;" layout="block">
-                #{race.nom}
-               
-            </p:outputPanel>
+        <p:ring id="custom" value="#{raceCtrlr.races}" var="race"  >
+             #{race.nom}
+             <br />
+             <p:graphicImage id="img" value="/res/#{race.urlImg}" />
+             
         </p:ring>
+        
     </h:body>
 </html>
 

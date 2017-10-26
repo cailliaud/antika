@@ -3,3 +3,16 @@ color:black;
 background-color:white;
 background-image:url(../res/antika-jdr.jpg);
 }
+
+.ui-ring-item{
+    padding : 2%;
+    text-align: center;
+    height: 100%;
+    width: 25%;
+}
+
+.ui-ring-item img{
+    margin : 10%;
+}
+
+

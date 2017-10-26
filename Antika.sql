@@ -120,7 +120,7 @@ CREATE TABLE TALENT
 (
    ID_TALENT            int NOT NULL AUTO_INCREMENT,
    ID_CAT               INT NOT NULL NOT NULL,
-   NOM                  VARCHAR(20) NOT NULL,
+   NOM                  VARCHAR(40) NOT NULL,
    PRIMARY KEY (ID_TALENT)
 );
 
