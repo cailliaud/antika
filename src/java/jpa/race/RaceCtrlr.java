@@ -10,6 +10,7 @@ import java.time.Clock;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
 import javax.inject.Named;
 
@@ -17,13 +18,16 @@ import javax.inject.Named;
  *
  * @author caill
  */
-@SessionScoped
+@RequestScoped
 @ManagedBean
 public class RaceCtrlr implements Serializable{
     
     @EJB
     private RaceDAO dao;
+    
+    private Race raceSelected;
 
+    
     public RaceCtrlr() {
     }
     
@@ -33,5 +37,21 @@ public class RaceCtrlr implements Serializable{
 
     }
     
+    public Race getRaceSelected() {
+        return raceSelected;
+    }
+
+    public void setRaceSelected(Race raceSelected) {
+        this.raceSelected = raceSelected;
+    }
+    
+    public String getInformation(){
+        if (raceSelected==null || raceSelected.equals(null)){
+            return "Cliquez sur une race pour obtenir plus ample information";
+        }else{
+            return raceSelected.getNom();
+        }
+    }
+   
     
 }

@@ -5,34 +5,40 @@
       xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title>Antika</title>
-        <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
+        <link href="css/mainbackground.css" rel="stylesheet" type="text/css"/>
     </h:head>
     <h:body>
-        <br />
-        <p align="center">
-             <img src="res/titre-ulule.png" align="middle" border="25"/>
-        <br/>
-        </p>
-        <h2 align="center" style="color: blue">
-            Bienvenue dans une nouvelle ère : Antika 
-        </h2>
-        <br />
-        <h:form>
-            <table align="center" border="0" width="40%">
-                <tr>
-                    <th>
-                        <p:commandButton value="Dieux" />
-                    </th>
-                    <th>
-                        <p:commandButton value="Personnage"  action="#{mainControler.goToCreatePerso()}"/>
-                    </th>
-                  <th>
-                        <p:commandButton value="Race"/>
-                    </th>
-                </tr>
-            </table>
-            
-        </h:form>
+        <p:layout fullPage="true">
+            <p:layoutUnit position="center"  >
+                <p align="center">
+                    <img src="res/titre-ulule.png" align="middle" border="25"/>
+                    <br/>
+                </p>
+                <h2 align="center" style="color: blue">
+                    Bienvenue dans une nouvelle ère : Antika 
+                </h2>
+                <br />
+                <h:form>
+                    <table align="center" border="0" width="40%">
+                        <tr>
+                            <th>
+                                <p:commandButton value="Dieux" />
+                            </th>
+                            <th>
+                                <p:commandButton value="Personnage"  action="#{mainControler.goToCreatePerso()}"/>
+                            </th>
+                            <th>
+                                <p:commandButton value="Race"/>
+                            </th>
+                        </tr>
+                    </table>
+
+                </h:form>
+            </p:layoutUnit>
+        </p:layout>
+
+
+
     </h:body>
 </html>
 
