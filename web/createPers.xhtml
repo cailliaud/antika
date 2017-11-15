@@ -13,28 +13,43 @@
     </h:head>
     <h:body> 
 
-        <p:layout fullPage="true">
+        <p:layout fullPage="true" >
             <p:layoutUnit position="north"  >
-                <h1 style="text-align: center">Choisissez votre race :</h1>
+                <h1 style="text-align: center">Choisissez votre race</h1>
             </p:layoutUnit>
 
             <p:layoutUnit position="center"  >
                 <h:form>
                     <p:ring id="custom" value="#{raceCtrlr.races}" var="race"  >
-                        <p:commandLink id="raceLink" update="info" >
-                             <p:graphicImage id="img" value="/res/#{race.urlImg}" />
-                             <br/>
-                             <h:outputText value="#{race.nom}" />
-                             <f:setPropertyActionListener value="#{race}" target="#{raceCtrlr.raceSelected}" />
+                        <p:commandLink id="raceLink" update="info choix" >
+                            <p:graphicImage id="img" value="/res/#{race.urlImg}" />
+                            <br/>
+                            <h:outputText value="#{race.nom}" />
+                            <f:setPropertyActionListener value="#{race}" target="#{raceCtrlr.raceSelected}" />
                         </p:commandLink>
                     </p:ring>
                 </h:form> 
-                <h:outputText style=" margin-top: 100px" id="info" value="#{raceCtrlr.information}"/>
+
+            </p:layoutUnit>
+            <p:layoutUnit position="south" styleClass="Info" >
+
+                <div align="center"><h:outputText  id="info" value="#{raceCtrlr.information}"/>
+                </div>
+                <table align="center" border="0" >
+
+                    <tr>
+                        <td><p:commandButton value="Retour"  action="index"/></td>
+                        <td><p:commandButton id="choix" disabled="#{!(raceCtrlr.raceSelected())}" value="#{raceCtrlr.valueButtonNext}"  action="index"/></td>
+                    </tr>
+
+                </table>
+
                 <br/>
-                <p:commandButton value="Retour"  action="index"/>
+
+
             </p:layoutUnit>
 
-            
+
 
         </p:layout>
 

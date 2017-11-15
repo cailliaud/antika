@@ -49,7 +49,23 @@ public class RaceCtrlr implements Serializable{
         if (raceSelected==null || raceSelected.equals(null)){
             return "Cliquez sur une race pour obtenir plus ample information";
         }else{
-            return raceSelected.getNom();
+            return raceSelected.getInformation();
+        }
+    }
+    
+    public String getValueButtonNext(){
+        if (raceSelected==null || raceSelected.equals(null)){
+            return "Choisis d'abord une race !";
+        }else{
+            return "Je serais un "+raceSelected.getNom();
+        }
+    }
+    
+    public boolean raceSelected(){
+        if (raceSelected==null || raceSelected.equals(null)){
+            return false;
+        }else{
+            return true;
         }
     }
    

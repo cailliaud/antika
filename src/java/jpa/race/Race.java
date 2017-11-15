@@ -30,7 +30,8 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Race.findAll", query = "SELECT r FROM Race r")
     , @NamedQuery(name = "Race.findByIdRace", query = "SELECT r FROM Race r WHERE r.idRace = :idRace")
     , @NamedQuery(name = "Race.findByNom", query = "SELECT r FROM Race r WHERE r.nom = :nom")
-    , @NamedQuery(name = "Race.findByUrlImg", query = "SELECT r FROM Race r WHERE r.urlImg = :urlImg")})
+    , @NamedQuery(name = "Race.findByUrlImg", query = "SELECT r FROM Race r WHERE r.urlImg = :urlImg")
+    , @NamedQuery(name = "Race.findByInformation", query = "SELECT r FROM Race r WHERE r.information = :information")})
 public class Race implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -47,6 +48,9 @@ public class Race implements Serializable {
     @Size(max = 50)
     @Column(name = "URL_IMG")
     private String urlImg;
+    @Size(max = 360)
+    @Column(name = "Information")
+    private String information;
 
     public Race() {
     }
@@ -82,6 +86,14 @@ public class Race implements Serializable {
 
     public void setUrlImg(String urlImg) {
         this.urlImg = urlImg;
+    }
+
+    public String getInformation() {
+        return information;
+    }
+
+    public void setInformation(String information) {
+        this.information = information;
     }
 
     @Override

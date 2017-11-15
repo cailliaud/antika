@@ -1,13 +1,18 @@
-
-.ui-layout-unit .ui-layout-unit-content{
-    overflow: none;
-
-    
-}
-.ui-layout-unit-content{
-    background-image: url(../res/antika-jdr.jpg);
+.ui-widget-content{
+    background: none;
+    border: none;
 }
 
-.ui-layout-unit{
-    border : none;
+.Info .ui-widget-content{
+    background: white;
+    margin: 5%;
+    align-content: center;
+}
+
+
+
+body {
+    background-image: url(../res/antika-jdr.png);
+    background-size: cover;
+
 }
