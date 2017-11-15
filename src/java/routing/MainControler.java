@@ -25,5 +25,7 @@ public class MainControler {
     public String goToCreatePerso(){
         return "createPers";
     }
-    
+     public String goToCreateTalent(){
+        return "createTalent";
+    }
 }
