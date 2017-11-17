@@ -1,12 +1,21 @@
+
+#banniere {
+    display: block;
+    margin-top:5%;
+    margin-left:auto;
+    margin-right:auto;
+    width: 40% ;
+}
 .ui-widget-content{
     background: none;
     border: none;
 }
 
-.Info .ui-widget-content{
+.WhiteBlock .ui-widget-content{
     background: white;
     margin: 5%;
     align-content: center;
+    border-radius:10px;
 }
 
 

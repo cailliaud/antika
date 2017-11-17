@@ -8,8 +8,7 @@
     <h:head>
         <title>Antika</title>
         <link href="css/mainbackground.css" rel="stylesheet" type="text/css"/>
-        <link href="css/race_css.css" rel="stylesheet" type="text/css"/>
-
+        <link href="css/talents.css" rel="stylesheet" type="text/css"/>
 
     </h:head>
     <h:body> 
@@ -19,21 +18,21 @@
                 <h1 style="text-align: center">Choisissez vos talents :</h1>
             </p:layoutUnit>
 
-            <p:layoutUnit position="center"  >
+            <p:layoutUnit position="center" styleClass="WhiteBlock"  >
                 <h:form>
                     <p:growl id="msg" showDetail="true" escape="false" />
 
                     <h3 style="margin-top: 0">Basic PickList</h3>
-                    
+
                     <p:pickList id="pickList" value="#{talentCtrlr.DMLtalent}" var="talents" itemLabel="#{talents.nom}" itemValue="#{talents}" />
 
                     <p:commandButton id="talentSubmit" value="Submit" oncomplete="PF('talentDialog').show()" style="margin-top:5px" />
-                    
+
                 </h:form>
                 <br/>
                 <p:commandButton value="Retour"  action="index"/>
             </p:layoutUnit>
-        
+
 
         </p:layout>
 

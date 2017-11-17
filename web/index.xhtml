@@ -10,13 +10,15 @@
     <h:body>
         <p:layout fullPage="true">
             <p:layoutUnit position="center"  >
-                <p align="center">
-                    <img src="res/titre-ulule.png" align="middle" border="25"/>
-                    <br/>
-                </p>
-                <h2 align="center" style="color: blue">
-                    Bienvenue dans une nouvelle ère : Antika 
-                </h2>
+
+                <img id="banniere" src="res/titre-ulule.png" />
+                <br/>
+                <div style="background-color: white; border-radius: 10px; margin-left:30%; margin-right:30%;">
+                    <h2 align="center" >
+                        Bienvenue dans une nouvelle ère : Antika 
+                    </h2>
+                </div>
+
                 <br />
                 <h:form>
                     <table align="center" border="0" width="40%">
@@ -28,7 +30,7 @@
                                 <p:commandButton value="Personnage"  action="#{mainControler.goToCreatePerso()}"/>
                             </th>
                             <th>
-                                <p:commandButton value="Race" action="#{mainControler.goToCreateTalent()}"/>
+                                <p:commandButton value="Talents" action="#{mainControler.goToCreateTalent()}"/>
                             </th>
                         </tr>
                     </table>
