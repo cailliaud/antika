@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Antika</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+
+
+
+    </h:head>
+    <h:body> 
+        <p:growl id="growl" showDetail="true" />
+        <p:layout fullPage="true" >
+            <p:layoutUnit position="north"  >
+                <h1 style="text-align: center">Créer Personnage</h1>
+            </p:layoutUnit>
+            <p:layoutUnit position="west" minSize="300" ></p:layoutUnit>
+            <p:layoutUnit position="east"  minSize="300" ></p:layoutUnit>
+            <p:layoutUnit position="center"  >
+                <h:form>
+                    <center>
+                        <h3>Nom de votre héros </h3>
+                        <p:inputText value="#{joueurCtrlr.joueur.nom}" />
+                        <br/>
+                        <h3 style="margin-top: 0">Basic</h3>
+                        <h:panelGrid columns="1" >
+                            <p:inputText id="age" value="#{joueurCtrlr.joueur.age}" />
+                            <p:slider for="age" minValue="14" maxValue="60" >
+
+                            </p:slider>
+                        </h:panelGrid>
+
+                    </center>
+                </h:form> 
+
+            </p:layoutUnit>
+            <p:layoutUnit position="south"  >
+
+                <h:form>
+                <table align="center" border="0" >
+
+                    <tr>
+                        <td><p:commandButton value="Retour"  action="#{mainControler.goToIndex('createPerso')}"/></td>
+                        <td><p:commandButton value="Choisir sa race"  action="#{mainControler.goToSelectRace('createPerso')}"/></td>
+                    </tr>
+
+                </table>
+                </h:form>
+                <br/>
+
+
+            </p:layoutUnit>
+
+
+
+        </p:layout>
+
+    </h:body>
+</html>
+

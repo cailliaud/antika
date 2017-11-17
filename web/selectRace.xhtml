@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Antika</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link href="css/race_css.css" rel="stylesheet" type="text/css"/>
+
+
+    </h:head>
+    <h:body> 
+
+        <p:layout fullPage="true" >
+            <p:layoutUnit position="north"  >
+                <h1 style="text-align: center">Choisissez votre race</h1>
+            </p:layoutUnit>
+
+            <p:layoutUnit position="center"  >
+                <h:form>
+                    <p:ring id="custom" value="#{raceCtrlr.races}" var="race"  >
+                        <p:commandLink id="raceLink" update="info choix" >
+                            <p:graphicImage id="img" value="/res/races/#{race.urlImg}" />
+                            <br/>
+                            <h:outputText value="#{race.nom}" />
+                            <f:setPropertyActionListener value="#{race}" target="#{raceCtrlr.raceSelected}" />
+                        </p:commandLink>
+                    </p:ring>
+                </h:form> 
+
+            </p:layoutUnit>
+            <p:layoutUnit position="south" styleClass="WhiteBlock" >
+
+                <div align="center"><h:outputText  id="info" value="#{raceCtrlr.information}"/>
+                </div>
+                <table align="center" border="0" >
+
+                    <tr>
+                        <td><p:commandButton value="Retour"  action="#{mainControler.goLastPage('selectRace')}"/></td>
+                        <td><p:commandButton id="choix" disabled="#{!(raceCtrlr.raceSelected())}" value="#{raceCtrlr.valueButtonNext}"  action='index'/></td>
+                    </tr>
+
+                </table>
+
+                <br/>
+
+
+            </p:layoutUnit>
+
+
+
+        </p:layout>
+
+    </h:body>
+</html>
+

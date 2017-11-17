@@ -2,11 +2,10 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:p="http://primefaces.org/ui"
-      xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title>Antika</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <link href="css/mainbackground.css" rel="stylesheet" type="text/css"/>
         <link href="css/talents.css" rel="stylesheet" type="text/css"/>
 
@@ -30,7 +29,7 @@
 
                 </h:form>
                 <br/>
-                <p:commandButton value="Retour"  action="index"/>
+                <p:commandButton value="Retour"  action="#{mainControler.goLastPage('selectTalent')}"/>
             </p:layoutUnit>
 
 

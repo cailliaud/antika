@@ -5,13 +5,14 @@
       xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title>Antika</title>
-        <link href="css/mainbackground.css" rel="stylesheet" type="text/css"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        
     </h:head>
-    <h:body>
-        <p:layout fullPage="true">
+    <h:body  >
+        <p:layout fullPage="true"  >
             <p:layoutUnit position="center"  >
 
-                <img id="banniere" src="res/titre-ulule.png" />
+                <img style="display: block;margin-top:5%; margin-left:auto;margin-right:auto;   width: 40% ;" src="res/titre-ulule.png" />
                 <br/>
                 <div style="text-align: center;">
                     <div style="background-color: white; border-radius: 10px; display: inline-block; padding:1%;">
@@ -26,13 +27,13 @@
                     <table align="center" border="0" width="40%">
                         <tr>
                             <th>
-                                <p:commandButton value="Dieux" />
+                                <p:commandButton value="Dieux" action="#{mainControler.goToSelectDieu('index')}"/>
                             </th>
                             <th>
-                                <p:commandButton value="Personnage"  action="#{mainControler.goToCreatePerso()}"/>
+                                <p:commandButton value="Personnage"  action="#{mainControler.goToCreatePerso('index')}"/>
                             </th>
                             <th>
-                                <p:commandButton value="Talents" action="#{mainControler.goToCreateTalent()}"/>
+                                <p:commandButton value="Talents" action="#{mainControler.goToCreateTalent('index')}"/>
                             </th>
                         </tr>
                     </table>
@@ -45,4 +46,4 @@
 
     </h:body>
 </html>
-
+    

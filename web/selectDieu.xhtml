@@ -6,7 +6,7 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Antika</title>
-        <link href="css/mainbackground.css" rel="stylesheet" type="text/css"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <link href="css/race_css.css" rel="stylesheet" type="text/css"/>
 
 
@@ -15,17 +15,16 @@
 
         <p:layout fullPage="true" >
             <p:layoutUnit position="north"  >
-                <h1 style="text-align: center">Choisissez votre race</h1>
+                <h1 style="text-align: center">Choisissez votre dieu</h1>
             </p:layoutUnit>
 
             <p:layoutUnit position="center"  >
                 <h:form>
-                    <p:ring id="custom" value="#{raceCtrlr.races}" var="race"  >
-                        <p:commandLink id="raceLink" update="info choix" >
-                            <p:graphicImage id="img" value="/res/#{race.urlImg}" />
-                            <br/>
-                            <h:outputText value="#{race.nom}" />
-                            <f:setPropertyActionListener value="#{race}" target="#{raceCtrlr.raceSelected}" />
+                    <p:ring id="custom" value="#{dieuCtrlr.dieux}" var="dieu"  >
+                        <p:commandLink id="dieuLink" update="info choix" >
+                            <p:graphicImage id="img" value="/res/dieux/#{dieu.urlImg}" />
+            
+                            <f:setPropertyActionListener value="#{dieu}" target="#{dieuCtrlr.dieuSelected}" />
                         </p:commandLink>
                     </p:ring>
                 </h:form> 
@@ -33,13 +32,13 @@
             </p:layoutUnit>
             <p:layoutUnit position="south" styleClass="WhiteBlock" >
 
-                <div align="center"><h:outputText  id="info" value="#{raceCtrlr.information}"/>
+                <div align="center"><h:outputText  id="info" value="#{dieuCtrlr.information}"/>
                 </div>
                 <table align="center" border="0" >
 
                     <tr>
-                        <td><p:commandButton value="Retour"  action="index"/></td>
-                        <td><p:commandButton id="choix" disabled="#{!(raceCtrlr.raceSelected())}" value="#{raceCtrlr.valueButtonNext}"  action="index"/></td>
+                        <td><p:commandButton value="Retour"  action="#{mainControler.goLastPage('selectDieu')}"/></td>
+                        <td><p:commandButton id="choix" disabled="#{!(dieuCtrlr.dieuSelected)}" value="#{dieuCtrlr.valueButtonNext}"  action='index'/></td>
                     </tr>
 
                 </table>

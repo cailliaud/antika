@@ -6,10 +6,16 @@
     margin-right:auto;
     width: 40% ;
 }
-.ui-widget-content{
-    background: none;
+.transparent  .ui-layout-unit-header{
+     background: none;
     border: none;
 }
+   
+.transparent  .ui-layout-unit-content{
+     background: none;
+    border: none;
+}
+
 
 .WhiteBlock .ui-widget-content{
     background: white;
@@ -17,8 +23,6 @@
     align-content: center;
     border-radius:10px;
 }
-
-
 
 body {
     background-image: url(../res/antika-jdr.png);
