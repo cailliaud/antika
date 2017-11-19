@@ -19,40 +19,42 @@
             </p:layoutUnit>
 
             <p:layoutUnit position="center"  >
-                <h:form>
-                    <p:ring id="custom" value="#{raceCtrlr.races}" var="race"  >
-                        <p:commandLink id="raceLink" update="info choix" >
+                <h:form id="form1">
+                    <p:ring id="ringRace" value="#{raceCtrlr.races}" var="race"  >
+                        <p:commandLink  update="form1:info form1:choix" >
                             <p:graphicImage id="img" value="/res/races/#{race.urlImg}" />
                             <br/>
                             <h:outputText value="#{race.nom}" />
+
                             <f:setPropertyActionListener value="#{race}" target="#{raceCtrlr.raceSelected}" />
                         </p:commandLink>
                     </p:ring>
+
+
+
+                    <div align="center" style="margin-top: 10%;">
+                        <h:outputText  id="info" value="#{raceCtrlr.information}"/>
+                        <br/>
+
+                        <p:commandButton  id="choix" disabled="#{!(raceCtrlr.raceSelected())}" value="#{raceCtrlr.valueButtonNext}" action="#{mainControler.goToSelectTalent()}"/>
+
+                    </div>
                 </h:form> 
 
+
+
+
             </p:layoutUnit>
+
             <p:layoutUnit position="south" styleClass="WhiteBlock" >
-
-                <div align="center"><h:outputText  id="info" value="#{raceCtrlr.information}"/>
-                </div>
                 <table align="center" border="0" >
-
                     <tr>
-                        <td><p:commandButton value="Retour"  action="#{mainControler.goLastPage('selectRace')}"/></td>
-                        <td><p:commandButton id="choix" disabled="#{!(raceCtrlr.raceSelected())}" value="#{raceCtrlr.valueButtonNext}"  action='index'/></td>
+                        <td><p:commandButton value="Retour"  action="#{mainControler.goToSelectDieu()}"/></td>
                     </tr>
-
                 </table>
-
                 <br/>
-
-
             </p:layoutUnit>
-
-
-
-        </p:layout>
-
+        </p:layout> 
     </h:body>
 </html>
 

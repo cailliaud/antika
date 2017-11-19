@@ -26,13 +26,31 @@
                         <h3>Nom de votre héros </h3>
                         <p:inputText value="#{joueurCtrlr.joueur.nom}" />
                         <br/>
-                        <h3 style="margin-top: 0">Basic</h3>
+                        <h3 style="margin-top: 0">Votre âge</h3>
                         <h:panelGrid columns="1" >
                             <p:inputText id="age" value="#{joueurCtrlr.joueur.age}" />
                             <p:slider for="age" minValue="14" maxValue="60" >
 
                             </p:slider>
                         </h:panelGrid>
+                        <br/>
+                        <h3 style="margin-top: 0">Votre sexe</h3>
+                        <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+                            <p:outputLabel for="sexe" value="Sexe:" />
+                            <p:selectOneRadio id="sexe" value="#{joueurCtrlr.joueur.sexe}">
+                                <f:selectItem itemLabel="Homme" itemValue="Homme" />
+                                <f:selectItem itemLabel="Femme" itemValue="Femme" />
+
+                            </p:selectOneRadio>
+                        </h:panelGrid>
+                        <br/>
+                        <h3 style="margin-top: 0">Votre Taille</h3>
+                        <p:inputNumber id="taille" value="#{joueurCtrlr.joueur.taille}"  
+                                       decimalSeparator=" m " >   
+                        </p:inputNumber>  
+                        <h3 style="margin-top: 0">Votre Poids</h3>
+                        <p:inputNumber id="poids" value="#{joueurCtrlr.joueur.poids}"  symbol=" Kg" symbolPosition="s" converter="javax.faces.Integer" >   
+                        </p:inputNumber>  
 
                     </center>
                 </h:form> 
@@ -41,14 +59,14 @@
             <p:layoutUnit position="south"  >
 
                 <h:form>
-                <table align="center" border="0" >
+                    <table align="center" border="0" >
 
-                    <tr>
-                        <td><p:commandButton value="Retour"  action="#{mainControler.goToIndex('createPerso')}"/></td>
-                        <td><p:commandButton value="Choisir sa race"  action="#{mainControler.goToSelectRace('createPerso')}"/></td>
-                    </tr>
+                        <tr>
+                            <td><p:commandButton value="Retour"  action="#{mainControler.goToIndex()}"/></td>
+                            <td><p:commandButton value="Choisis ton parent"  action="#{mainControler.goToSelectDieu()}"/></td>
+                        </tr>
 
-                </table>
+                    </table>
                 </h:form>
                 <br/>
 

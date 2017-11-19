@@ -6,13 +6,12 @@
 package jpa.dieu;
 
 import java.io.Serializable;
-import java.time.Clock;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
-import javax.faces.bean.SessionScoped;
-import javax.inject.Named;
+import javax.faces.context.FacesContext;
+
 
 /**
  *
@@ -43,6 +42,7 @@ public class DieuCtrlr implements Serializable{
 
     public void setDieuSelected(Dieu dieuSelected) {
         this.dieuSelected = dieuSelected;
+        FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("dieu", dieuSelected);
     }
     
     public String getInformation(){

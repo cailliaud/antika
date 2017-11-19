@@ -19,39 +19,59 @@
             </p:layoutUnit>
 
             <p:layoutUnit position="center"  >
-                <h:form>
-                    <p:ring id="custom" value="#{dieuCtrlr.dieux}" var="dieu"  >
-                        <p:commandLink id="dieuLink" update="info choix" >
-                            <p:graphicImage id="img" value="/res/dieux/#{dieu.urlImg}" />
-            
-                            <f:setPropertyActionListener value="#{dieu}" target="#{dieuCtrlr.dieuSelected}" />
-                        </p:commandLink>
-                    </p:ring>
-                </h:form> 
+
+                <p:dataScroller value="#{dieuCtrlr.dieux}" var="dieu" >
+                    <f:facet name="header">
+                        Voici la liste des Dieux Existants
+                    </f:facet>
+
+                    <h:panelGrid columns="2" style="width:100%" columnClasses="logo,detail">
+                        <p:graphicImage value="/res/dieux/#{dieu.urlImg}" /> 
+
+                        <p:outputPanel>
+                            <h:panelGrid columns="2" cellpadding="5">
+                                <h:outputText value="Nom" />
+                                <h:outputText value="#{dieu.nom}" style="font-weight: bold"/>
+
+                                <h:outputText value="Pouvoir Principal" />
+                                <h:outputText value="#{dieu.pouvoirPrincipal.nom}" style="font-weight: bold"/>
+
+                                <h:outputText value="Pouvoir Secondaire" />
+                                <h:outputText value="#{dieu.pouvoirSecondaire.nom}" style="font-weight: bold"/>
+
+                            </h:panelGrid>
+                        </p:outputPanel>
+                    </h:panelGrid>
+                </p:dataScroller>
 
             </p:layoutUnit>
-            <p:layoutUnit position="south" styleClass="WhiteBlock" >
+            <p:layoutUnit position="south" styleClass="WhiteBlock" minSize="100" >
+                <h:form> 
+                    <table align="center" border="0"  >
+                        <tr>
+                            <td><p:selectOneMenu  value="#{dieuCtrlr.dieuSelected}" converter="dieuConverter" >
+                                    <f:selectItems value="#{dieuCtrlr.dieux}" var="dieu" itemLabel="#{dieu.nom}" itemValue="#{dieu}" />
+                                </p:selectOneMenu >
+                            </td>
+                            <td>
+                                <p:commandButton value="sera mon parent"  action="#{mainControler.goToSelectRace()}"/>
+                            </td>
 
-                <div align="center"><h:outputText  id="info" value="#{dieuCtrlr.information}"/>
-                </div>
-                <table align="center" border="0" >
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <center>
+                                    <p:commandButton value="Retour"  action="#{mainControler.goToCreatePerso()}"/>
+                                </center>
+                            </td>
+                        </tr>
 
-                    <tr>
-                        <td><p:commandButton value="Retour"  action="#{mainControler.goLastPage('selectDieu')}"/></td>
-                        <td><p:commandButton id="choix" disabled="#{!(dieuCtrlr.dieuSelected)}" value="#{dieuCtrlr.valueButtonNext}"  action='index'/></td>
-                    </tr>
-
-                </table>
+                    </table>
+                </h:form>
 
                 <br/>
-
-
             </p:layoutUnit>
-
-
-
         </p:layout>
-
     </h:body>
 </html>
 

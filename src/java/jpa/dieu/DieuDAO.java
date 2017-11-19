@@ -29,4 +29,12 @@ public class DieuDAO {
         Query q = em.createNamedQuery("Dieu.findAll");
         return q.getResultList();
     }
+    
+    public Dieu findDieu(String name){
+        Query q = em.createNamedQuery("Dieu.findByNom").setParameter("nom", name);
+        Dieu d= (Dieu)q.getSingleResult();
+        return d;
+    }
+    
+
 }

@@ -7,7 +7,9 @@ package jpa.joueur;
 
 import jpa.dieu.Dieu;
 import java.io.Serializable;
+import java.util.Collection;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -18,11 +20,14 @@ import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 import jpa.race.Race;
+import jpa.talent.EstCapable;
 
 /**
  *
@@ -39,6 +44,14 @@ import jpa.race.Race;
     , @NamedQuery(name = "Joueur.findByPoids", query = "SELECT j FROM Joueur j WHERE j.poids = :poids")
     , @NamedQuery(name = "Joueur.findByAge", query = "SELECT j FROM Joueur j WHERE j.age = :age")})
 public class Joueur implements Serializable {
+
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 5)
+    @Column(name = "SEXE")
+    private String sexe;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "joueur")
+    private Collection<EstCapable> estCapableCollection;
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -188,5 +201,22 @@ public class Joueur implements Serializable {
     public String toString() {
         return "jpa.perso.Joueur[ idJoueur=" + idJoueur + " ]";
     }
-    
+
+    public String getSexe() {
+        return sexe;
+    }
+
+    public void setSexe(String sexe) {
+        this.sexe = sexe;
+    }
+
+    @XmlTransient
+    public Collection<EstCapable> getEstCapableCollection() {
+        return estCapableCollection;
+    }
+
+    public void setEstCapableCollection(Collection<EstCapable> estCapableCollection) {
+        this.estCapableCollection = estCapableCollection;
+    }
+
 }

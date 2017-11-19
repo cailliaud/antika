@@ -18,18 +18,21 @@
             </p:layoutUnit>
 
             <p:layoutUnit position="center" styleClass="WhiteBlock"  >
+                <center>
                 <h:form>
                     <p:growl id="msg" showDetail="true" escape="false" />
 
-                    <h3 style="margin-top: 0">Basic PickList</h3>
+                    <h3 style="margin-top: 0">Liste des Talents</h3>
 
                     <p:pickList id="pickList" value="#{talentCtrlr.DMLtalent}" var="talents" itemLabel="#{talents.nom}" itemValue="#{talents}" />
 
                     <p:commandButton id="talentSubmit" value="Submit" oncomplete="PF('talentDialog').show()" style="margin-top:5px" />
 
-                </h:form>
+                
                 <br/>
-                <p:commandButton value="Retour"  action="#{mainControler.goLastPage('selectTalent')}"/>
+                <p:commandButton value="Retour"  action="#{mainControler.goToIndex()}"/>
+                </h:form>
+                </center>
             </p:layoutUnit>
 
 

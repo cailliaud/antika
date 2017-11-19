@@ -20,7 +20,7 @@ import javax.inject.Named;
 @ManagedBean
 public class MainControler {
 
-    private String lastPage;
+
 
     /**
      * Creates a new instance of MainControler
@@ -31,38 +31,27 @@ public class MainControler {
 
     @PostConstruct
     public void init() {
-        lastPage = "index";
     }
 
-    public String goToIndex(String currentPage) {
-        lastPage = currentPage;
+    public String goToIndex() {
         return "index";
     }
 
-    public String goToCreatePerso(String currentPage) {
-        lastPage = currentPage;
+    public String goToCreatePerso() {
         return "createPerso";
     }
 
-    public String goToCreateTalent(String currentPage) {
-        lastPage = currentPage;
+    public String goToSelectTalent() {
+        System.out.println("routing.MainControler.goToSelectTalent()");
         return "selectTalent";
     }
     
-    public String goToSelectDieu(String currentPage){
-        lastPage = currentPage;
+    public String goToSelectDieu(){
         return "selectDieu";
     }
 
-    public String goLastPage(String currentPage) {
-        String page = lastPage;
-        lastPage = currentPage;
-        return page;
 
-    }
-
-    public String goToSelectRace(String currentPage) {
-        lastPage = currentPage;
+    public String goToSelectRace() {
         return "selectRace";
     }
 }

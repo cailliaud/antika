@@ -8,11 +8,15 @@ package jpa.race;
 import java.io.Serializable;
 import java.time.Clock;
 import java.util.List;
+import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 import javax.inject.Named;
+import jpa.dieu.Dieu;
+import jpa.dieu.DieuDAO;
 
 /**
  *
@@ -23,19 +27,36 @@ import javax.inject.Named;
 public class RaceCtrlr implements Serializable{
     
     @EJB
-    private RaceDAO dao;
-    
+    private RaceDAO daoRace;
+    private Dieu dieuSelected;
     private Race raceSelected;
 
     
     public RaceCtrlr() {
     }
     
+    @PostConstruct
+    public void init(){
+        dieuSelected = (Dieu)FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("dieu");
+    }
+    
+    public Dieu getDieuSelected(){
+        return this.dieuSelected;
+    }
+    
     public List<Race> getRaces(){
-        return dao.findAll();
+        
+        if (dieuSelected!=null){
+             return ((List<Race>) dieuSelected.getRaceCollection());
+        }else {
+            return daoRace.findAll();
+        }
+       
 
 
     }
+    
+
     
     public Race getRaceSelected() {
         return raceSelected;

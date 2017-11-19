@@ -14,6 +14,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -24,6 +25,7 @@ import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 import jpa.joueur.Joueur;
+import jpa.race.Race;
 
 /**
  *
@@ -38,6 +40,9 @@ import jpa.joueur.Joueur;
     , @NamedQuery(name = "Dieu.findByNom", query = "SELECT d FROM Dieu d WHERE d.nom = :nom")
     , @NamedQuery(name = "Dieu.findByUrlImg", query = "SELECT d FROM Dieu d WHERE d.urlImg = :urlImg")})
 public class Dieu implements Serializable {
+
+    @ManyToMany(mappedBy = "dieuCollection")
+    private Collection<Race> raceCollection;
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -146,6 +151,15 @@ public class Dieu implements Serializable {
     @Override
     public String toString() {
         return "jpa.perso.Dieu[ idDieu=" + idDieu + " ]";
+    }
+
+    @XmlTransient
+    public Collection<Race> getRaceCollection() {
+        return raceCollection;
+    }
+
+    public void setRaceCollection(Collection<Race> raceCollection) {
+        this.raceCollection = raceCollection;
     }
     
 }
