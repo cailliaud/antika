@@ -8,13 +8,13 @@
         <title>Antika</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <link href="css/race_css.css" rel="stylesheet" type="text/css"/>
-
+        <link rel="stylesheet" href="./css/joueur.css" />
 
     </h:head>
     <h:body> 
 
         <p:layout fullPage="true" >
-            <p:layoutUnit position="north"  >
+            <p:layoutUnit position="north" styleClass="AntikaBackgroundNorth" >
                 <h1 style="text-align: center">Choisissez votre dieu</h1>
             </p:layoutUnit>
 
@@ -45,7 +45,7 @@
                 </p:dataScroller>
 
             </p:layoutUnit>
-            <p:layoutUnit position="south" styleClass="WhiteBlock" minSize="100" >
+            <p:layoutUnit position="south" styleClass="AntikaBackgroundSouth" minSize="100" >
                 <h:form> 
                     <table align="center" border="0"  >
                         <tr>
@@ -54,7 +54,9 @@
                                 </p:selectOneMenu >
                             </td>
                             <td>
-                                <p:commandButton value="sera mon parent"  action="#{mainControler.goToSelectRace()}"/>
+                                <p:commandButton value="sera mon parent"  action="#{mainControler.goToSelectRace()}">
+                                    <f:actionListener binding="#{joueurCtrlr.joueur.setIdDieu(dieuCtrlr.dieuSelected)}" />
+                                </p:commandButton>
                             </td>
 
                         </tr>

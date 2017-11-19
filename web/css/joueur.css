@@ -8,3 +8,27 @@ and open the template in the editor.
     Author     : caill
 */
 
+.AntikaBackgroundNorth .ui-layout-unit-content{
+    background-image: url(../res/antika-jdr-north.png);
+    background-size: cover;
+}
+
+
+.AntikaBackgroundSouth .ui-layout-unit-content{
+    background-image: url(../res/antika-jdr-south.png);
+    background-size: cover;
+}
+.AntikaBackgroundEast .ui-layout-unit-content{
+    background-image: url(../res/antika-jdr-east.png);
+    background-size: cover;
+}
+.AntikaBackgroundWest .ui-layout-unit-content{
+    background-image: url(../res/antika-jdr-west.png);
+    background-size: cover;
+}
+
+.AntikaBackgroundCenter .ui-layout-unit-content{
+    background-image: url(../res/antika-jdr.png);
+    background-attachment: fixed;
+    background-size: cover;
+}

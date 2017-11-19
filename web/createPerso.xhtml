@@ -7,7 +7,7 @@
     <h:head>
         <title>Antika</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
+        <link rel="stylesheet" href="./css/joueur.css" />
 
 
 
@@ -15,11 +15,11 @@
     <h:body> 
         <p:growl id="growl" showDetail="true" />
         <p:layout fullPage="true" >
-            <p:layoutUnit position="north"  >
+            <p:layoutUnit position="north" styleClass="AntikaBackgroundNorth" >
                 <h1 style="text-align: center">Créer Personnage</h1>
             </p:layoutUnit>
-            <p:layoutUnit position="west" minSize="300" ></p:layoutUnit>
-            <p:layoutUnit position="east"  minSize="300" ></p:layoutUnit>
+            <p:layoutUnit position="west" minSize="300" styleClass="AntikaBackgroundWest" ></p:layoutUnit>
+            <p:layoutUnit position="east"  minSize="300" styleClass="AntikaBackgroundEast"></p:layoutUnit>
             <p:layoutUnit position="center"  >
                 <h:form>
                     <center>
@@ -56,7 +56,7 @@
                 </h:form> 
 
             </p:layoutUnit>
-            <p:layoutUnit position="south"  >
+            <p:layoutUnit position="south" styleClass="AntikaBackgroundSouth" >
 
                 <h:form>
                     <table align="center" border="0" >

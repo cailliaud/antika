@@ -8,17 +8,23 @@
         <title>Antika</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <link href="css/race_css.css" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" href="./css/joueur.css" />
 
 
     </h:head>
     <h:body> 
 
         <p:layout fullPage="true" >
-            <p:layoutUnit position="north"  >
+            <p:layoutUnit position="north" styleClass="AntikaBackgroundNorth" >
                 <h1 style="text-align: center">Choisissez votre race</h1>
+                <br/>
+                <center>
+                    Ta race est fonction du parent que tu as choisi : #{joueurCtrlr.joueur.idDieu.nom}
+                </center>
+              
             </p:layoutUnit>
 
-            <p:layoutUnit position="center"  >
+            <p:layoutUnit position="center"  styleClass="AntikaBackgroundCenter">
                 <h:form id="form1">
                     <p:ring id="ringRace" value="#{raceCtrlr.races}" var="race"  >
                         <p:commandLink  update="form1:info form1:choix" >
@@ -33,27 +39,26 @@
 
 
                     <div align="center" style="margin-top: 10%;">
+                        <div style="background-color: white; border-radius: 10px; display: inline-block; padding:1%;">
                         <h:outputText  id="info" value="#{raceCtrlr.information}"/>
                         <br/>
 
                         <p:commandButton  id="choix" disabled="#{!(raceCtrlr.raceSelected())}" value="#{raceCtrlr.valueButtonNext}" action="#{mainControler.goToSelectTalent()}"/>
-
+                        </div>
                     </div>
                 </h:form> 
-
-
-
-
-            </p:layoutUnit>
-
-            <p:layoutUnit position="south" styleClass="WhiteBlock" >
                 <table align="center" border="0" >
                     <tr>
                         <td><p:commandButton value="Retour"  action="#{mainControler.goToSelectDieu()}"/></td>
                     </tr>
                 </table>
-                <br/>
+
+
+
+
             </p:layoutUnit>
+
+            
         </p:layout> 
     </h:body>
 </html>

@@ -1,31 +1,6 @@
 
-#banniere {
-    display: block;
-    margin-top:5%;
-    margin-left:auto;
-    margin-right:auto;
-    width: 40% ;
-}
-.transparent  .ui-layout-unit-header{
-     background: none;
-    border: none;
-}
-   
-.transparent  .ui-layout-unit-content{
-     background: none;
-    border: none;
-}
-
-
-.WhiteBlock .ui-widget-content{
-    background: white;
-    margin: 5%;
-    align-content: center;
-    border-radius:10px;
-}
-
-body {
+.AntikaBackground .ui-layout-unit-content{
     background-image: url(../res/antika-jdr.png);
     background-size: cover;
-
 }
+
