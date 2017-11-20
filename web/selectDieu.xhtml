@@ -12,7 +12,7 @@
 
     </h:head>
     <h:body> 
-    <p:growl id="growl" showDetail="true" />
+
         <p:layout fullPage="true" >
             <p:layoutUnit position="north" styleClass="AntikaBackgroundNorth" >
                 <h1 style="text-align: center">Choisissez votre dieu</h1>
@@ -54,7 +54,7 @@
                                 </p:selectOneMenu >
                             </td>
                             <td>
-                                <p:commandButton value="sera mon parent" update="growl" action="#{mainControler.goToSelectRace()}">
+                                <p:commandButton value="sera mon parent"  action="#{mainControler.goToSelectRace()}">
                                     <f:actionListener binding="#{joueurCtrlr.joueur.setIdDieu(dieuCtrlr.dieuSelected)}" />
                                 </p:commandButton>
                             </td>

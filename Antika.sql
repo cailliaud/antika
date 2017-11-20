@@ -46,20 +46,6 @@ INSERT INTO `categorie` (`ID_CAT`, `NOM`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `utilisateur`
---
-
-DROP TABLE IF EXISTS `utilisateur`;
-CREATE TABLE `utilisateur` (
-  `ID_UTI` int(11) NOT NULL,
-  `LOGIN` varchar(30) NOT NULL,
-  `PASSWORD` varchar(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-
--- --------------------------------------------------------
-
---
 -- Structure de la table `dieu`
 --
 
@@ -154,7 +140,6 @@ CREATE TABLE `est_capable` (
 DROP TABLE IF EXISTS `joueur`;
 CREATE TABLE `joueur` (
   `ID_JOUEUR` int(11) NOT NULL,
-  `ID_RACE` int(11) NOT NULL,
   `ID_RACE` int(11) DEFAULT NULL,
   `ID_METIER` int(11) DEFAULT NULL,
   `ID_DIEU` int(11) DEFAULT NULL,
@@ -399,10 +384,6 @@ INSERT INTO `talent` (`ID_TALENT`, `ID_CAT`, `NOM`) VALUES
 ALTER TABLE `categorie`
   ADD PRIMARY KEY (`ID_CAT`);
 
-  --
--- Index pour la table `utilisateur`
---
-ALTER TABLE `utilisateur` ADD PRIMARY KEY(` ID_UTI `);
 --
 -- Index pour la table `dieu`
 --
@@ -462,12 +443,6 @@ ALTER TABLE `talent`
 --
 -- AUTO_INCREMENT pour les tables exportées
 --
-
---
--- AUTO_INCREMENT pour la table `categorie`
---
-ALTER TABLE `utilisateur`
-  MODIFY `ID_UTI` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `categorie`
@@ -545,8 +520,7 @@ ALTER TABLE `est_capable`
 ALTER TABLE `joueur`
   ADD CONSTRAINT `FK_A_POUR_PARENT` FOREIGN KEY (`ID_DIEU`) REFERENCES `dieu` (`ID_DIEU`),
   ADD CONSTRAINT `FK_EST_UN` FOREIGN KEY (`ID_RACE`) REFERENCES `race` (`ID_RACE`),
-  ADD CONSTRAINT `FK_EXERCE` FOREIGN KEY (`ID_METIER`) REFERENCES `metier` (`ID_METIER`),
-  ADD CONSTRAINT `FK_UTILISATEUR` FOREIGN KEY (`ID_UTI`) REFERENCES `utilisateur` (`ID_UTI`);
+  ADD CONSTRAINT `FK_EXERCE` FOREIGN KEY (`ID_METIER`) REFERENCES `metier` (`ID_METIER`);
 
 --
 -- Contraintes pour la table `talent`

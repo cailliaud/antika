@@ -42,7 +42,7 @@ public class MainControler {
     }
 
     public String goToSelectTalent() {
-
+        System.out.println("routing.MainControler.goToSelectTalent()");
         return "selectTalent";
     }
     
