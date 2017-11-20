@@ -45,6 +45,10 @@ import jpa.talent.EstCapable;
     , @NamedQuery(name = "Joueur.findByAge", query = "SELECT j FROM Joueur j WHERE j.age = :age")})
 public class Joueur implements Serializable {
 
+    @JoinColumn(name = "ID_UTI", referencedColumnName = "ID_UTI")
+    @ManyToOne(optional = false)
+    private Utilisateur idUti;
+
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 5)
@@ -217,6 +221,14 @@ public class Joueur implements Serializable {
 
     public void setEstCapableCollection(Collection<EstCapable> estCapableCollection) {
         this.estCapableCollection = estCapableCollection;
+    }
+
+    public Utilisateur getIdUti() {
+        return idUti;
+    }
+
+    public void setIdUti(Utilisateur idUti) {
+        this.idUti = idUti;
     }
 
 }
