@@ -22,6 +22,7 @@
             <p:layoutUnit position="east"  minSize="300" styleClass="AntikaBackgroundEast"></p:layoutUnit>
             <p:layoutUnit position="center"  >
                 <h:form>
+
                     <center>
                         <h3>Nom de votre héros </h3>
                         <p:inputText value="#{joueurCtrlr.joueur.nom}" />
@@ -51,19 +52,16 @@
                         <h3 style="margin-top: 0">Votre Poids</h3>
                         <p:inputNumber id="poids" value="#{joueurCtrlr.joueur.poids}"  symbol=" Kg" symbolPosition="s" converter="javax.faces.Integer" >   
                         </p:inputNumber>  
-
+                        <br/>
+                        <p:commandButton value="Choisis ton parent" update="growl" action="#{mainControler.goToSelectDieu()}"/>
                     </center>
-                </h:form> 
-
+                </h:form>
             </p:layoutUnit>
             <p:layoutUnit position="south" styleClass="AntikaBackgroundSouth" >
-
                 <h:form>
                     <table align="center" border="0" >
-
                         <tr>
                             <td><p:commandButton value="Retour"  action="#{mainControler.goToIndex()}"/></td>
-                            <td><p:commandButton value="Choisis ton parent"  action="#{mainControler.goToSelectDieu()}"/></td>
                         </tr>
 
                     </table>

@@ -21,6 +21,10 @@ public class JoueurCtrlr {
     public JoueurCtrlr(){
         joueur = new Joueur();
     }
+    
+    public void resetJoueur(){
+        joueur = new Joueur();
+    }
 
     public Joueur getJoueur() {
         return joueur;
