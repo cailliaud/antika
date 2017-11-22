@@ -13,7 +13,7 @@
 
     </h:head>
     <h:body> 
-    <p:growl id="growl" showDetail="true" />
+
         <p:layout fullPage="true" >
             <p:layoutUnit position="north" styleClass="AntikaBackgroundNorth" >
                 <h1 style="text-align: center">Choisissez votre race</h1>
@@ -38,14 +38,14 @@
                 <div align="center" style="margin-top: 10%;">
                     <div style="background-color: white; border-radius: 10px; display: inline-block; padding:1%;">
                         <h:form id="form1">
-                                                <p:log />
+                            
                             <h:outputText  id="info" value="#{raceCtrlr.information}"/>
-                        
-                        <br/>
-                        <p:commandButton  update="growl"  id="choix" disabled="#{!(raceCtrlr.raceSelected())}" value="#{raceCtrlr.valueButtonNext}" action="selectTalent"/>
+
+                            <br/>
+                            <p:commandButton   id="choix" disabled="#{!(raceCtrlr.raceIsSelected())}" value="#{raceCtrlr.valueButtonNext}" action="#{mainControler.goToSelectTalent()}"/>
                         </h:form> 
                     </div>
-                    
+
                 </div>
 
                 <table align="center" border="0" >
