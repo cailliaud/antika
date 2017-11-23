@@ -16,10 +16,11 @@
             <p:layoutUnit position="north" styleClass="AntikaBackgroundNorth" >
                 <h1 style="text-align: center">Liste des Personnages existants</h1>
             </p:layoutUnit>
-
+            <p:layoutUnit position="west" minSize="200" styleClass="AntikaBackgroundWest" ></p:layoutUnit>
+            <p:layoutUnit position="east"  minSize="200" styleClass="AntikaBackgroundEast"></p:layoutUnit>
             <p:layoutUnit position="center"  >
                 <h:form id="form">
-                    <p:dataList value="#{dialogView.listJoueur}" var="j" id="listJ" type="unordered" itemType="none" paginator="true" rows="10" styleClass="paginated">
+                    <p:dataList value="#{dialogView.listJoueur}" var="j" id="listJ" type="unordered" itemType="none" paginator="true" rows="6" styleClass="paginated">
                         <p:commandLink update=":form:joueurDetail" oncomplete="PF('joueurDiag').show()" title="View Detail" styleClass="ui-icon ui-icon-search" style="float:left;margin-right:10px">
                             <f:setPropertyActionListener value="#{j}" target="#{dialogView.joueurSelected}" />
                             <h:outputText value="#{j.nom}, #{j.idUti.login}" />
@@ -75,7 +76,7 @@
         <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
             <p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
             <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
-            
+
         </p:confirmDialog>
     </h:body>
 </html>
