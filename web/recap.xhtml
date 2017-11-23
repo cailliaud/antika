@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Antika</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="stylesheet" href="./css/joueur.css" />
+        
+    </h:head>
+    <h:body    >
+        
+                <p:layout fullPage="true" >
+            <p:layoutUnit position="north" styleClass="AntikaBackgroundNorth" >
+                <h1 style="text-align: center">Récapitulatif de votre personnage</h1>
+            </p:layoutUnit>
+            <p:layoutUnit position="west" minSize="300" styleClass="AntikaBackgroundWest" ></p:layoutUnit>
+            <p:layoutUnit position="east"  minSize="300" styleClass="AntikaBackgroundEast"></p:layoutUnit>
+            <p:layoutUnit position="center"  >
+                <h:form>
+
+                    <center>
+                        <h:panelGrid columns="2" style="width:100%" columnClasses="logo,detail">
+                            <p:outputPanel>
+                                <h3 style="margin-top: 0">Votre Personnage</h3>
+                                    <h:outputText value="Le nom de votre personnage est #{joueurCtrlr.name}."/>
+                                <br/>
+                                    <h:outputText value="L'age de votre personnage est #{joueurCtrlr.age}." />
+                                <br/>
+                                    <h:outputText value="Le genre de votre personnage  est #{joueurCtrlr.sexe}." />
+                                <br/>
+                                    <h:outputText value="La taille de votre personnage est #{joueurCtrlr.taille} cm." /> 
+                                <br/>    
+                                    <h:outputText value="Le poids de votre personnage est #{joueurCtrlr.poids} kg." /> 
+                                <br/>
+                                <h3 style="margin-top: 20">Votre Dieu</h3> <p:graphicImage value="/res/dieux/#{dieu.urlImg}" />
+                                <br/>
+                                    <h:outputText value="Votre dieu est #{joueurCtrlr.dieu.nom}." />
+                                    <br/>
+                                    <h:outputText value="Pouvoir Principal est : #{dieu.pouvoirPrincipal.nom}."  />
+                                    <br/>
+                                    <h:outputText value="Pouvoir Secondaire est : #{dieu.pouvoirSecondaire.nom}." />
+                                    <br/>
+                                <h3 style="margin-top: 20">Votre Race</h3> <p:graphicImage value="/res/races/#{race.urlImg}" />
+                                <br/>
+                                    <h:outputText value="Votre race est #{joueurCtrlr.race.nom}."/> 
+                                <br/>
+                            </p:outputPanel>
+                        </h:panelGrid>
+                    </center>
+                </h:form>
+            </p:layoutUnit>
+            <p:layoutUnit position="south" styleClass="AntikaBackgroundSouth" >
+                <h:form>
+                    <table align="center" border="0" width="40%">
+                        <tr>
+                            <th>
+                                <p:commandButton value="Valider" action="#{mainControler.goToSelectDieu()}">
+                                    <f:actionListener binding="#{joueurCtrlr.displayJoueur()}"/>
+                                </p:commandButton>
+                            </th>
+                            <th>
+                                <p:commandButton value="Retour au menu principal"  action="#{mainControler.goToIndex()}">
+                                    <f:actionListener binding="#{joueurCtrlr.resetJoueur()}" />
+                                </p:commandButton>
+                            </th>
+                            <th>
+                                <p:commandButton value="Retour" action="#{mainControler.goToSelectTalent()}" />
+                            </th>
+                        </tr>
+                    </table>
+
+                </h:form>
+            </p:layoutUnit>
+        </p:layout>
+
+
+
+    </h:body>
+</html>
+    

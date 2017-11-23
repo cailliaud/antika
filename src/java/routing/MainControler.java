@@ -56,4 +56,8 @@ public class MainControler {
     public String goToSelectRace() {
         return "selectRace";
     }
+    
+    public String goToRecap() {
+        return "recap";
+    }
 }
