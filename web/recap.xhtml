@@ -8,58 +8,64 @@
         <title>Antika</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <link rel="stylesheet" href="./css/joueur.css" />
-        
+
     </h:head>
     <h:body    >
-        
-                <p:layout fullPage="true" >
+
+        <p:layout fullPage="true" >
             <p:layoutUnit position="north" styleClass="AntikaBackgroundNorth" >
                 <h1 style="text-align: center">Récapitulatif de votre personnage</h1>
             </p:layoutUnit>
-            <p:layoutUnit position="west" minSize="300" styleClass="AntikaBackgroundWest" ></p:layoutUnit>
+            <p:layoutUnit position="west" minSize="300" styleClass="AntikaBackgroundWest" >
+
+
+            </p:layoutUnit>
             <p:layoutUnit position="east"  minSize="300" styleClass="AntikaBackgroundEast"></p:layoutUnit>
             <p:layoutUnit position="center"  >
                 <h:form>
-
-                    <center>
-                        <h:panelGrid columns="2" style="width:100%" columnClasses="logo,detail">
-                            <p:outputPanel>
+                    <h:panelGrid id="recap" columns="2" style="width:100%" columnClasses="logo,detail">
+                        <p:outputPanel>
+                            <center>
                                 <h3 style="margin-top: 0">Votre Personnage</h3>
                                 <h:outputText value="Le nom de votre personnage est #{joueurCtrlr.joueur.nom}."/>
                                 <br/>
-                                    <h:outputText value="L'age de votre personnage est #{joueurCtrlr.joueur.age}." />
+                                <h:outputText value="L'age de votre personnage est #{joueurCtrlr.joueur.age} ans." />
                                 <br/>
-                                <h:outputText value="Le genre de votre personnage  est #{joueurCtrlr.joueur.sexe}." />
+                                <h:outputText value="Votre personnage est un(e) #{joueurCtrlr.joueur.sexe}." />
                                 <br/>
-                                    <h:outputText value="La taille de votre personnage est #{joueurCtrlr.joueur.taille} cm." /> 
+                                <h:outputText value="Votre personnage mesure #{joueurCtrlr.joueur.taille} cm." /> 
                                 <br/>    
-                                    <h:outputText value="Le poids de votre personnage est #{joueurCtrlr.joueur.poids} kg." /> 
+                                <h:outputText value="Votre personnage pèse #{joueurCtrlr.joueur.poids} kg." /> 
                                 <br/>
                                 <h3 style="margin-top: 20">Votre Dieu</h3> <p:graphicImage value="/res/dieux/#{joueurCtrlr.joueur.idDieu.urlImg}" />
                                 <br/>
-                                    <h:outputText value="Votre parent dieu est #{joueurCtrlr.joueur.idDieu.nom}." />
-                                    <br/>
-                                    <h:outputText value="Pouvoir Principal est : #{joueurCtrlr.joueur.idDieu.pouvoirPrincipal.nom}."  />
-                                    <br/>
-                                    <h:outputText value="Pouvoir Secondaire est : #{joueurCtrlr.joueur.idDieu.pouvoirSecondaire.nom}." />
-                                    <br/>
-                                    <h3 style="margin-top: 20">Votre Race</h3> <p:graphicImage value="/res/races/#{joueurCtrlr.joueur.idRace.urlImg}" />
+                                <h:outputText value="Votre dieu/déesse parent est #{joueurCtrlr.joueur.idDieu.nom}." />
                                 <br/>
-                                    <h:outputText value="Votre race est #{joueurCtrlr.joueur.idRace.nom}."/> 
+                                <h:outputText value="Pouvoir Principal est : #{joueurCtrlr.joueur.idDieu.pouvoirPrincipal.nom}."  />
                                 <br/>
-                            </p:outputPanel>
-                        </h:panelGrid>
-                    </center>
+                                <h:outputText value="Pouvoir Secondaire est : #{joueurCtrlr.joueur.idDieu.pouvoirSecondaire.nom}." />
+                                <br/>
+                                <h3 style="margin-top: 20">Votre Race</h3> <p:graphicImage value="/res/races/#{joueurCtrlr.joueur.idRace.urlImg}" />
+                                <br/>
+                                <h:outputText value="Vous est un #{joueurCtrlr.joueur.idRace.nom}."/> 
+                                <br/>
+                                <p:commandButton value="Print" type="button" icon="ui-icon-print" style="display:block;margin-bottom: 20px">
+                                    <p:printer target="recap" />
+                                </p:commandButton>
+                            </center>
+                        </p:outputPanel>
+                    </h:panelGrid>
+
                 </h:form>
             </p:layoutUnit>
             <p:layoutUnit position="south" styleClass="AntikaBackgroundSouth" >
                 <h:form>
                     <table align="center" border="0" width="40%">
                         <tr>
-                             <td>
+                            <td>
                                 <p:commandButton value="Retour" action="#{mainControler.goToSelectTalent()}" />
                             </td>
-                           
+
                             <td>
                                 <p:commandButton value="Retour au menu principal"  action="#{mainControler.goToIndex()}">
                                     <f:actionListener binding="#{joueurCtrlr.resetJoueur()}" />
@@ -67,7 +73,7 @@
                             </td>
                             <td>
                                 <p:commandButton value="Valider" action="#{joueurCtrlr.saveJoueur()}">
-                                 
+
                                 </p:commandButton>
                             </td>
                         </tr>
@@ -81,4 +87,4 @@
 
     </h:body>
 </html>
-    
+

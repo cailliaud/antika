@@ -11,6 +11,7 @@ import java.util.List;
 import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import jpa.dieu.Dieu;
 import jpa.dieu.DieuDAO;
@@ -26,6 +27,7 @@ import org.primefaces.model.chart.ChartSeries;
 import org.primefaces.model.chart.PieChartModel;
 
 @ManagedBean
+@ViewScoped
 public class ChartView implements Serializable {
 
     @EJB
@@ -89,7 +91,7 @@ public class ChartView implements Serializable {
 
     public void itemSelect(ItemSelectEvent event) {
         FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Statistique Dieu",
-                "Item Index: " + event.getItemIndex() + ", Series Index:" + event.getSeriesIndex());
+                "C'est grave de vouloir cliquer partout !");
 
         FacesContext.getCurrentInstance().addMessage(null, msg);
     }

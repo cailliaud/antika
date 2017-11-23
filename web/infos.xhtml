@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Antika</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="stylesheet" href="./css/joueur.css" />
+
+
+
+    </h:head>
+    <h:body> 
+        <p:layout fullPage="true" >
+            <p:layoutUnit position="north" styleClass="AntikaBackgroundNorth" >
+                <h1 style="text-align: center">Informations sur l'application</h1>
+            </p:layoutUnit>
+            <p:layoutUnit position="west" minSize="300" styleClass="AntikaBackgroundWest" ></p:layoutUnit>
+            <p:layoutUnit position="east"  minSize="300" styleClass="AntikaBackgroundEast"></p:layoutUnit>
+            <p:layoutUnit position="center"  >
+                <h:form id="form">           
+                    <p:growl id="msgs" showDetail="true" />
+                    <p:accordionPanel>
+                        <p:ajax event="tabChange" listener="#{tabView.onTabChange}" update=":form:msgs" />
+                        <p:ajax event="tabClose" listener="#{tabView.onTabClose}" update=":form:msgs" />
+
+                        <p:tab title="Alexandre Cailliaud">
+                            <h:panelGrid columns="2" cellpadding="10">
+                                <p:graphicImage value="res/admin/god.jpg" />
+                                <h:outputText
+                                    value="Maître de jeu sur Antika. Il est l'un des deux créateurs de cette application" />
+                            </h:panelGrid>
+                        </p:tab>
+                        <p:tab title="Armand Devienne">
+                            <h:panelGrid columns="2" cellpadding="10">
+                                <p:graphicImage value="res/admin/thor.jpg" />
+                                <h:outputText value="Deuxième membre de la fine équipe. Il ne déconne jamais quans il s'agit de la pause !" />
+                            </h:panelGrid>
+                        </p:tab>
+
+                        <p:tab title="Autres" >
+                            <h:panelGrid columns="2" cellpadding="10">
+                                <h:outputText value="Suivez le projet via GitHub !" />
+                                <p:link  href="https://github.com/cailliaud/antika" target="_blank" >
+                                    <p:graphicImage value="res/admin/git.png" />
+                                </p:link>
+                            </h:panelGrid>
+                        </p:tab>
+                    </p:accordionPanel>
+                
+                </h:form>
+            </p:layoutUnit>
+            <p:layoutUnit position="south" styleClass="AntikaBackgroundSouth" >
+                <h:form>
+                    <table align="center" border="0" >
+                        <tr>
+                            <td><p:commandButton value="Retour"  action="#{mainControler.goToIndex()}"/></td>
+                        </tr>
+
+                    </table>
+                </h:form>
+            </p:layoutUnit>
+        </p:layout>
+    </h:body>
+</html>
+

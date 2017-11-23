@@ -30,23 +30,26 @@
                     <table align="center" border="0" width="40%">
                         <tr>
                             <td>
-                                <p:commandButton value="Liste des Joueurs" action="listJoueurs"/>
+                                <p:commandButton style="text-align: center; width: 100%;" value="Liste des Joueurs" action="listJoueurs"/>
                             </td>
                             <td>
-                                <p:commandButton value="Personnage"  action="#{mainControler.goToCreatePerso()}">
+                                <p:commandButton style="text-align: center; width: 100%;" value="Personnage"  action="#{mainControler.goToCreatePerso()}">
                                     <f:actionListener binding="#{joueurCtrlr.resetJoueur()}" />
                                 </p:commandButton>
                             </td>
                             <td>
-                                <p:commandButton value="Game Map" action="antikaMap"/>
+                                <p:commandButton style="text-align: center; width: 100%;" value="Game Map" action="antikaMap"/>
                             </td>
                         </tr>
                         <tr>
-                            <td colspan="2">
-                                <p:commandButton value="Panneau Administrateur" action="menuAdmin"/>
+                            <td>
+                                <p:commandButton style="text-align: center; width: 100%;"  value="Administration" action="menuAdmin"/>
                             </td>
                             <td>
-                                <p:commandButton value="Statistiques" action="stats"/>
+                                <p:commandButton style="text-align: center; width: 100%;"  value="Statistiques" action="stats"/>
+                            </td>
+                            <td>
+                                <p:commandButton style="text-align: center; width: 100%;" value="Infos" action="infos"/>
                             </td>
                           
                         </tr>

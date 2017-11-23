@@ -50,7 +50,8 @@
                             </p:column>
                         </p:pickList>
 
-                        <p:commandButton id="talentSubmit" value="Submit" action="#{talentCtrlr.displaySelected()}" style="margin-top:5px" />
+                        <p:commandButton value="Recap"  action="#{mainControler.goToRecap()}"/>
+
                     </center>
                 </h:form>
 
@@ -65,9 +66,7 @@
                                 <center>
                                     <p:commandButton value="Retour"  action="#{mainControler.goToSelectRace()}"/>
                                 </center>
-                                <center>
-                                    <p:commandButton value="Recap"  action="#{mainControler.goToRecap()}"/>
-                                </center>
+
                             </td>
                         </tr>
 
