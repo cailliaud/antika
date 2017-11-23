@@ -5,82 +5,63 @@
  */
 package jpa.talent;
 
-import jpa.Talent.*;
 import java.io.Serializable;
-import java.time.Clock;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
-import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
-import javax.faces.bean.SessionScoped;
-import javax.faces.context.FacesContext;
-import javax.inject.Named;
-import org.primefaces.event.SelectEvent;
+import javax.faces.bean.ViewScoped;
 import org.primefaces.event.TransferEvent;
-import org.primefaces.event.UnselectEvent;
 import org.primefaces.model.DualListModel;
 
 /**
  *
  * @author caill
  */
-@RequestScoped
+@ViewScoped
 @ManagedBean
-public class TalentCtrlr implements Serializable{
-    
+public class TalentCtrlr implements Serializable {
+
     @EJB
     private TalentDAO dao;
-    
-    private Talent talentSelected;
 
-    private DualListModel<Talent> DMLtalent;
-    
-    
-    
+    private DualListModel<Talent> dmlTalent;
+
     public TalentCtrlr() {
     }
-    
-    @PostConstruct
-    public void init(){
-        List<Talent> talentsSource = new ArrayList<Talent>();
-        List<Talent> talentsTarget = new ArrayList<Talent>();
 
-        talentsSource=dao.findAll();
+    @PostConstruct
+    public void init() {
+        List<Talent> talentsSource = new ArrayList<>();
+        List<Talent> talentsTarget = new ArrayList<>();
+
+        talentsSource = dao.findAll();
+        dmlTalent = new DualListModel<>(talentsSource, talentsTarget);
         
-        DMLtalent = new DualListModel<Talent>(talentsSource,talentsTarget);
     }
 
     public DualListModel<Talent> getDMLtalent() {
-        return DMLtalent;
+        return dmlTalent;
     }
 
     public void setDMLtalent(DualListModel<Talent> DMLtalent) {
-        this.DMLtalent = DMLtalent;
+        this.dmlTalent = DMLtalent;
     }
 
-    
-    
-    public List<Talent> getTalent(){
+    public List<Talent> getTalent() {
         return dao.findAll();
     }
-    
-    public Talent getTalentSelected() {
-        return talentSelected;
-    }
 
-    public void setTalentSelected(Talent talentSelected) {
-        this.talentSelected = talentSelected;
-    }
+
     
-    
-    
-     public void onTransfer(TransferEvent event) {
-        StringBuilder builder = new StringBuilder();
-        for(Object item : event.getItems()) {
-            builder.append(((Talent) item).getNom()).append("<br />");
+    public void displaySelected(){
+        String res="";
+        for (Object t : dmlTalent.getTarget()) {
+            
+            res+=" "+t.toString();
+            
         }
-    }   
+        System.out.println(res);
+    }
 }

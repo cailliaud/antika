@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Antika</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="stylesheet" href="./css/joueur.css" />
+
+    </h:head>
+    <h:body> 
+        <p:growl id="growl" showDetail="true" />
+        <p:layout fullPage="true" >
+            <p:layoutUnit position="north" styleClass="AntikaBackgroundNorth" >
+                <h1 style="text-align: center">La Map d'Antika</h1>
+            </p:layoutUnit>
+
+            <p:layoutUnit position="center"  >
+
+                <h:form>
+                    <p:tree value="#{treeBasicView.root}" var="node" dynamic="true" orientation="horizontal" >
+                        <p:treeNode>
+                            <h:outputText value="#{node}" />
+                        </p:treeNode>
+                    </p:tree>
+
+                </h:form>
+
+            </p:layoutUnit>
+            <p:layoutUnit position="south" styleClass="AntikaBackgroundSouth" minSize="50">
+                <center>
+                    <p:commandButton value="Retour"  action="#{mainControler.goToIndex()}"/>
+                </center>
+            </p:layoutUnit>
+        </p:layout>
+    </h:body>
+</html>
+

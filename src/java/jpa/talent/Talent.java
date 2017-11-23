@@ -123,5 +123,5 @@ public class Talent implements Serializable {
     public void setEstCapableCollection(Collection<EstCapable> estCapableCollection) {
         this.estCapableCollection = estCapableCollection;
     }
-    
+
 }

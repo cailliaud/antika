@@ -5,6 +5,7 @@
  */
 package jpa.talent;
 
+import java.util.ArrayList;
 import jpa.Talent.*;
 import java.util.List;
 import javax.ejb.Stateless;
@@ -28,6 +29,27 @@ public class TalentDAO {
     public List<Talent> findAll(){
         Query q = em.createNamedQuery("Talent.findAll");
         return q.getResultList();
+    }
+    
+    public List<Talent> selectTalentFromCat(String categorie){
+        List<Talent> allTal = findAll();
+        List<Talent> talents = new ArrayList<>();
+        for (Talent talent : allTal) {
+            if (talent.getIdCat().getNom().equals(categorie)){
+                talents.add(talent);
+            }
+        }
+        return talents;
+    }
+    
+    public Talent findByID(String idTalent){
+        Query q = em.createNamedQuery("Talent.findByIdTalent").setParameter("idTalent", idTalent);
+        return (Talent) q.getSingleResult();
+    }
+    
+    public Talent findTalent(String nom){
+        Query q = em.createNamedQuery("Talent.findByNom").setParameter("nom", nom);
+        return (Talent) q.getSingleResult();
     }
     
 }
