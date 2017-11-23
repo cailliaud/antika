@@ -17,7 +17,6 @@ import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Named;
 import jpa.dieu.Dieu;
-import jpa.dieu.DieuDAO;
 
 /**
  *

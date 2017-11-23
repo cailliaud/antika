@@ -42,7 +42,6 @@ public class DieuCtrlr implements Serializable{
 
     public void setDieuSelected(Dieu dieuSelected) {
         this.dieuSelected = dieuSelected;
-        FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("dieu", dieuSelected);
     }
     
     public String getInformation(){

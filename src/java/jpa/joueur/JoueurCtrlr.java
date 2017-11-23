@@ -5,12 +5,18 @@
  */
 package jpa.joueur;
 
-import javax.faces.application.FacesMessage;
+import java.util.List;
+import javax.annotation.PostConstruct;
+import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
-import javax.faces.event.ValueChangeEvent;
-import org.primefaces.event.SlideEndEvent;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.Size;
+import jpa.dieu.Dieu;
+import jpa.race.Race;
+import jpa.talent.Talent;
 
 /**
  *
@@ -21,14 +27,46 @@ import org.primefaces.event.SlideEndEvent;
 public class JoueurCtrlr {
 
     private Joueur joueur;
+    @Size(min=2,max=14 , message="Ton nom est soit trop grand soit trop petit pour être un héros (2 à 14 caractères)")
+    private String name;
+    @Min(value=40,message = "Oups, tu es trop léger pour partir à l'aventure !") @Max(value= 250,message = "Légalement, on peut pas te laisser partir, tu es trop lourd !")
+    private int poids;
+    @Min(value = 110,message = "Pas de nains chez les Grecques") @Max(value=200,message = "Tu passes pas les portes, ça peut être chiant !")
+    private int taille;
+    
+    private String sexe;
+    
+    private Dieu dieu;
+    private Race race;
+    private List<Talent> listTalents;
+    
+    @Min(value=14,message = "Mourir à moins de 14 ans c'est moche !") @Max(value=60,message = "Pas d'aventures pour les retraités !")
+    private int age;
+        
 
+    @EJB
+    private JoueurDAO daoJoueur;
+    
     public JoueurCtrlr() {
         joueur = new Joueur();
+        age =14;
+        poids = 40;
+        taille = 160;
+        sexe = "Homme";
+        name ="Arkantos";
+        
+    }
+    
+    @PostConstruct
+    public void init(){
+        joueur.setAge(14);
+        joueur.setSexe("Homme");
     }
 
     public void resetJoueur() {
         joueur = new Joueur();
     }
+    
 
     public Joueur getJoueur() {
         return joueur;
@@ -38,26 +76,90 @@ public class JoueurCtrlr {
         this.joueur = joueur;
     }
 
-    public void onInputChanged(ValueChangeEvent event) {
-        FacesMessage message = new FacesMessage("Input Changed", "Value: " + event.getNewValue());
-        FacesContext.getCurrentInstance().addMessage(null, message);
+    public String getName() {
+        return name;
     }
 
-    public void onSlideEnd(SlideEndEvent event) {
-        FacesMessage message = new FacesMessage("Slide Ended", "Value: " + event.getValue());
-        FacesContext.getCurrentInstance().addMessage(null, message);
+    public void setName(String name) {
+        this.name = name;
+        this.joueur.setNom(name);
+    }
+
+    public int getPoids() {
+        return poids;
+    }
+
+    public void setPoids(int poids) {
+        this.poids = poids;
+        this.joueur.setPoids(poids);
+    }
+
+    public int getTaille() {
+        return taille;
+    }
+
+    public void setTaille(int taille) {
+        this.taille = taille;
+        this.joueur.setTaille(taille);
+    }
+
+    public String getSexe() {
+        return sexe;
+    }
+
+    public void setSexe(String sexe) {
+        this.sexe = sexe;
+        this.joueur.setSexe(sexe);
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+        this.joueur.setAge(age);
+    }
+
+    public Dieu getDieu() {
+        return dieu;
+    }
+
+    public void setDieu(Dieu dieu) {
+        this.dieu = dieu;
+        this.joueur.setIdDieu(dieu);
+        FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("dieu", this.joueur.getIdDieu());
+    }
+
+    public Race getRace() {
+        return race;
+    }
+
+    public void setRace(Race race) {
+        this.race = race;
+        this.joueur.setIdRace(race);
+    }
+
+    public List<Talent> getListTalents() {
+        return listTalents;
+    }
+
+    public void setListTalents(List<Talent> listTalents) {
+        this.listTalents = listTalents;
     }
     
-    public String checkSlider() {
-        if(joueur.getAge()<60 && joueur.getAge()>14){
-            return "selectDieu";
-        }else{
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error!", "l'âge dois être compris entre 14 et 60 ans pour participer à l'aventure"));
-            return "";
-        }
+    
+    
+    public void displayJoueur(){
+        String nomDieu =joueur.getIdDieu()!=null ? joueur.getIdDieu().getNom() : "Dieu non sélectionné";
+
+        System.out.println(joueur.getNom()+" ,\n"+joueur.getAge()
+                +" ,"+joueur.getPoids()+" Kg, \n"+joueur.getTaille()
+                +" m,"+joueur.getSexe()+",Dieu ="+ nomDieu);
     }
     
-    public int convertTaille(String S){
-        return Integer.parseInt(S.replace('m', ','));
+    public void saveJoueur(){
+        
     }
+
 }

@@ -56,7 +56,8 @@
                             </td>
                             <td>
                                 <p:commandButton value="sera mon parent"  update="growl" action="#{mainControler.goToSelectRace()}">
-                                    <f:actionListener binding="#{joueurCtrlr.joueur.setIdDieu(dieuCtrlr.dieuSelected)}" />
+                                    <f:actionListener binding="#{joueurCtrlr.setDieu(dieuCtrlr.dieuSelected)}" />
+                                    <f:actionListener binding="#{joueurCtrlr.displayJoueur()}"/>
                                 </p:commandButton>
                             </td>
 
