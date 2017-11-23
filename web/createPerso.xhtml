@@ -25,13 +25,13 @@
 
                     <center>
                         <h3>Nom de votre héros </h3>
-                        <p:inputText value="#{joueurCtrlr.joueur.nom}" />
+                        <p:inputText value="#{joueurCtrlr.joueur.nom}" required="true" autocomplete="off" requiredMessage="Un nom c'est important "/>
                         <br/>
                         <h3 style="margin-top: 0">Votre âge</h3>
                         <h:panelGrid columns="1" >
-                            <p:inputText id="age" value="#{joueurCtrlr.joueur.age}" />
+                            <p:inputText id="age" value="#{joueurCtrlr.joueur.age}"  />
                             <p:slider for="age" minValue="14" maxValue="60" >
-
+                                <p:ajax event="slideEnd" listener="#{joueurCtrlr.onSlideEnd}" update="growl" />
                             </p:slider>
                         </h:panelGrid>
                         <br/>

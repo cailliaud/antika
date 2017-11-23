@@ -47,6 +47,7 @@
             </p:layoutUnit>
             <p:layoutUnit position="south" styleClass="AntikaBackgroundSouth" minSize="100" >
                 <h:form> 
+               
                     <table align="center" border="0"  >
                         <tr>
                             <td><p:selectOneMenu  value="#{dieuCtrlr.dieuSelected}" converter="dieuConverter" >
@@ -54,7 +55,7 @@
                                 </p:selectOneMenu >
                             </td>
                             <td>
-                                <p:commandButton value="sera mon parent" update="growl" action="#{mainControler.goToSelectRace()}">
+                                <p:commandButton value="sera mon parent"  update="growl" action="#{mainControler.goToSelectRace()}">
                                     <f:actionListener binding="#{joueurCtrlr.joueur.setIdDieu(dieuCtrlr.dieuSelected)}" />
                                 </p:commandButton>
                             </td>

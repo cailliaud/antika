@@ -5,6 +5,7 @@
  */
 package jpa.joueur;
 
+
 import jpa.dieu.Dieu;
 import java.io.Serializable;
 import java.util.Collection;
@@ -230,5 +231,7 @@ public class Joueur implements Serializable {
     public void setIdUti(Utilisateur idUti) {
         this.idUti = idUti;
     }
+
+
 
 }

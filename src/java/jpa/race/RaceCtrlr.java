@@ -13,6 +13,7 @@ import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Named;
 import jpa.dieu.Dieu;
@@ -22,7 +23,7 @@ import jpa.dieu.DieuDAO;
  *
  * @author caill
  */
-@RequestScoped
+@ViewScoped
 @ManagedBean
 public class RaceCtrlr implements Serializable{
     
@@ -82,8 +83,8 @@ public class RaceCtrlr implements Serializable{
         }
     }
     
-    public boolean raceSelected(){
-        if (raceSelected==null || raceSelected.equals(null)){
+    public boolean raceIsSelected(){
+        if (raceSelected==null ){
             return false;
         }else{
             return true;

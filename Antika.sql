@@ -154,7 +154,7 @@ CREATE TABLE `est_capable` (
 DROP TABLE IF EXISTS `joueur`;
 CREATE TABLE `joueur` (
   `ID_JOUEUR` int(11) NOT NULL,
-  `ID_RACE` int(11) NOT NULL,
+  `ID_UTI` int(11) NOT NULL,
   `ID_RACE` int(11) DEFAULT NULL,
   `ID_METIER` int(11) DEFAULT NULL,
   `ID_DIEU` int(11) DEFAULT NULL,
