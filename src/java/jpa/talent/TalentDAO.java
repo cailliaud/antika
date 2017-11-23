@@ -6,7 +6,6 @@
 package jpa.talent;
 
 import java.util.ArrayList;
-import jpa.Talent.*;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;

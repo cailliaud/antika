@@ -17,6 +17,8 @@ import javax.validation.constraints.Size;
 import jpa.dieu.Dieu;
 import jpa.race.Race;
 import jpa.talent.Talent;
+import jpa.utilisateur.Utilisateur;
+import jpa.utilisateur.UtilisateurDAO;
 
 /**
  *
@@ -31,7 +33,7 @@ public class JoueurCtrlr {
     private String name;
     @Min(value=40,message = "Oups, tu es trop léger pour partir à l'aventure !") @Max(value= 250,message = "Légalement, on peut pas te laisser partir, tu es trop lourd !")
     private int poids;
-    @Min(value = 110,message = "Pas de nains chez les Grecques") @Max(value=200,message = "Tu passes pas les portes, ça peut être chiant !")
+    @Min(value = 110,message = "Pas de nains chez les Grecques") @Max(value=250,message = "Tu passes pas les portes, ça peut être chiant !")
     private int taille;
     
     private String sexe;
@@ -46,6 +48,11 @@ public class JoueurCtrlr {
 
     @EJB
     private JoueurDAO daoJoueur;
+    
+    @EJB
+    private UtilisateurDAO daoUtil;
+    
+    private Utilisateur utilisateurSelected;
     
     public JoueurCtrlr() {
         joueur = new Joueur();
@@ -64,7 +71,12 @@ public class JoueurCtrlr {
     }
 
     public void resetJoueur() {
-        joueur = new Joueur();
+        this.joueur = new Joueur();
+        age =14;
+        poids = 40;
+        taille = 160;
+        sexe = "Homme";
+        name ="Arkantos";
     }
     
 
@@ -158,8 +170,12 @@ public class JoueurCtrlr {
                 +" m,"+joueur.getSexe()+",Dieu ="+ nomDieu);
     }
     
-    public void saveJoueur(){
-        
+    
+    
+    public String saveJoueur(){
+        this.joueur.setIdUti( daoUtil.findUser("mj", "antika"));
+        daoJoueur.addJoueur(this.joueur);
+        return "index";
     }
 
 }

@@ -5,9 +5,11 @@
  */
 package jpa.joueur;
 
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 /**
  *
@@ -20,6 +22,21 @@ public class JoueurDAO {
      
      public JoueurDAO(){
          
+     }
+     
+     public void addJoueur(Joueur j){
+         em.persist(j);
+         em.flush();
+     }
+     
+     public List<Joueur> findAll(){
+         Query q = em.createNamedQuery("Joueur.findAll");
+         return q.getResultList();
+     }
+     
+     public void killJoueur(Joueur j){
+         em.remove(em.merge(j));
+         em.flush();
      }
      
      

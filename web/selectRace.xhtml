@@ -42,7 +42,9 @@
                             <h:outputText  id="info" value="#{raceCtrlr.information}"/>
 
                             <br/>
-                            <p:commandButton   id="choix" disabled="#{!(raceCtrlr.raceIsSelected())}" value="#{raceCtrlr.valueButtonNext}" action="#{mainControler.goToSelectTalent()}"/>
+                            <p:commandButton   id="choix" disabled="#{!(raceCtrlr.raceIsSelected())}" value="#{raceCtrlr.valueButtonNext}" action="#{mainControler.goToSelectTalent()}">
+                                <f:actionListener binding="#{joueurCtrlr.setRace(raceCtrlr.raceSelected)}"/>
+                            </p:commandButton>
                         </h:form> 
                     </div>
 

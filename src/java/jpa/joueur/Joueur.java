@@ -29,6 +29,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 import jpa.race.Race;
 import jpa.talent.EstCapable;
+import jpa.utilisateur.Utilisateur;
 
 /**
  *

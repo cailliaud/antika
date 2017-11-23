@@ -35,6 +35,11 @@ public class DieuDAO {
         Dieu d= (Dieu)q.getSingleResult();
         return d;
     }
+
+    public void update(Dieu dieuSelected) {
+        em.merge(dieuSelected);
+        em.flush();
+    }
     
 
 }

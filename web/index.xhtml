@@ -29,17 +29,23 @@
                 <h:form>
                     <table align="center" border="0" width="40%">
                         <tr>
-                            <th>
-                                <p:commandButton value="Dieux" action="#{mainControler.goToSelectDieu()}"/>
-                            </th>
-                            <th>
+                            <td>
+                                <p:commandButton value="Liste des Joueurs" action="listJoueurs"/>
+                            </td>
+                            <td>
                                 <p:commandButton value="Personnage"  action="#{mainControler.goToCreatePerso()}">
                                     <f:actionListener binding="#{joueurCtrlr.resetJoueur()}" />
                                 </p:commandButton>
-                            </th>
-                            <th>
+                            </td>
+                            <td>
                                 <p:commandButton value="Game Map" action="antikaMap"/>
-                            </th>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <p:commandButton value="Panneau Administrateur" action="menuAdmin"/>
+                            </td>
+                          
                         </tr>
                     </table>
 

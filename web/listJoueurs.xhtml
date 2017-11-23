@@ -1,0 +1,82 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Antika</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="stylesheet" href="./css/joueur.css" />
+
+    </h:head>
+    <h:body> 
+        <p:growl id="growl" showDetail="true" />
+        <p:layout fullPage="true" >
+            <p:layoutUnit position="north" styleClass="AntikaBackgroundNorth" >
+                <h1 style="text-align: center">Liste des Personnages existants</h1>
+            </p:layoutUnit>
+
+            <p:layoutUnit position="center"  >
+                <h:form id="form">
+                    <p:dataList value="#{dialogView.listJoueur}" var="j" id="listJ" type="unordered" itemType="none" paginator="true" rows="10" styleClass="paginated">
+                        <p:commandLink update=":form:joueurDetail" oncomplete="PF('joueurDiag').show()" title="View Detail" styleClass="ui-icon ui-icon-search" style="float:left;margin-right:10px">
+                            <f:setPropertyActionListener value="#{j}" target="#{dialogView.joueurSelected}" />
+                            <h:outputText value="#{j.nom}, #{j.idUti.login}" />
+                        </p:commandLink>
+                        <h:outputText value="#{j.nom}, #{j.idUti.login}" style="display:inline-block"/>
+                        <br/>
+
+                        <p:commandButton value="Tue #{j.nom} !" actionListener="#{dialogView.killJoueur(j)}" update="growl :form:listJ">
+                            <p:confirm header="Confirmation" message="Tu veux vraiment faire ça?" icon="ui-icon-alert" />
+                        </p:commandButton>
+
+                    </p:dataList>
+
+
+                    <p:dialog header="Joueur info" widgetVar="joueurDiag"  >
+                        <p:outputPanel id="joueurDetail" style="text-align:center;">
+                            <h:outputText value="Créateur :  #{dialogView.joueurSelected.idUti.login}."/>
+                            <p:separator/>
+                            <h:outputText value="Nom :  #{dialogView.joueurSelected.nom}."/>
+                            <br/>
+                            <h:outputText value="Age : #{dialogView.joueurSelected.age}." />
+                            <br/>
+                            <h:outputText value="Sexe : #{dialogView.joueurSelected.sexe}." />
+                            <br/>
+                            <h:outputText value="Taille : #{dialogView.joueurSelected.taille} cm." /> 
+                            <br/>    
+                            <h:outputText value="Poids : #{dialogView.joueurSelected.poids} kg." /> 
+                            <p:separator/>
+                            Son Dieu 
+                            <br/>
+                            <h:outputText value="Parent : #{dialogView.joueurSelected.idDieu.nom}." />
+                            <br/>
+                            <h:outputText value="Pouvoir Principal : #{dialogView.joueurSelected.idDieu.pouvoirPrincipal.nom}."  />
+                            <br/>
+                            <h:outputText value="Pouvoir Secondaire : #{dialogView.joueurSelected.idDieu.pouvoirSecondaire.nom}." />
+                            <p:separator/>
+                            Race du personnage 
+                            <br/>
+                            <h:outputText value="#{dialogView.joueurSelected.idRace.nom}."/> 
+                            <br/>
+                        </p:outputPanel>
+                    </p:dialog>
+
+
+                </h:form>
+            </p:layoutUnit>
+            <p:layoutUnit position="south" styleClass="AntikaBackgroundSouth" minSize="50">
+                <center>
+                    <p:commandButton value="Retour"  action="#{mainControler.goToIndex()}"/>
+                </center>
+            </p:layoutUnit>
+        </p:layout>
+        <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+            <p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+            <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+            
+        </p:confirmDialog>
+    </h:body>
+</html>
+
