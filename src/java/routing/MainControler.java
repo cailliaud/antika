@@ -10,6 +10,8 @@ import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.inject.Named;
+import jpa.joueur.Joueur;
+import jpa.joueur.JoueurCtrlr;
 
 /**
  *

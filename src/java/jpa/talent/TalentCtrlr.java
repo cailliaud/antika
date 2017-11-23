@@ -17,7 +17,7 @@ import org.primefaces.model.DualListModel;
 
 /**
  *
- * @author caill
+ * @author moi
  */
 @ViewScoped
 @ManagedBean

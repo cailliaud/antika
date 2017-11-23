@@ -15,7 +15,7 @@ import javax.persistence.Query;
 
 /**
  *
- * @author caill
+ * @author moi
  */
 @Stateless
 public class TalentDAO {

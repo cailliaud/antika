@@ -41,19 +41,18 @@
                             <p:selectOneRadio id="sexe" value="#{joueurCtrlr.joueur.sexe}">
                                 <f:selectItem itemLabel="Homme" itemValue="Homme" />
                                 <f:selectItem itemLabel="Femme" itemValue="Femme" />
-
                             </p:selectOneRadio>
                         </h:panelGrid>
                         <br/>
                         <h3 style="margin-top: 0">Votre Taille</h3>
                         <p:inputNumber id="taille" value="#{joueurCtrlr.joueur.taille}"  
-                                       decimalSeparator=" m " >   
+                                       decimalSeparator="m"   > 
                         </p:inputNumber>  
                         <h3 style="margin-top: 0">Votre Poids</h3>
                         <p:inputNumber id="poids" value="#{joueurCtrlr.joueur.poids}"  symbol=" Kg" symbolPosition="s" converter="javax.faces.Integer" >   
                         </p:inputNumber>  
                         <br/>
-                        <p:commandButton value="Choisis ton parent" update="growl" action="#{mainControler.goToSelectDieu()}"/>
+                        <p:commandButton value="Choisis ton parent" update="growl" action="#{joueurCtrlr.checkSlider}"/>
                     </center>
                 </h:form>
             </p:layoutUnit>

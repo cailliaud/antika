@@ -47,5 +47,17 @@ public class JoueurCtrlr {
         FacesMessage message = new FacesMessage("Slide Ended", "Value: " + event.getValue());
         FacesContext.getCurrentInstance().addMessage(null, message);
     }
-
+    
+    public String checkSlider() {
+        if(joueur.getAge()<60 && joueur.getAge()>14){
+            return "selectDieu";
+        }else{
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error!", "l'âge dois être compris entre 14 et 60 ans pour participer à l'aventure"));
+            return "";
+        }
+    }
+    
+    public int convertTaille(String S){
+        return Integer.parseInt(S.replace('m', ','));
+    }
 }
