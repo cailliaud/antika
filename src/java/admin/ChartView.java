@@ -32,7 +32,7 @@ public class ChartView implements Serializable {
 
     @EJB
     private DieuDAO daoDieu;
-    
+
     @EJB
     private RaceDAO daoRace;
     private BarChartModel barModel;
@@ -57,7 +57,7 @@ public class ChartView implements Serializable {
 
         barModel.setTitle("Dieux et Déesses joués");
         barModel.setLegendPosition("nw");
-
+        barModel.setAnimate(true);
         Axis xAxis = barModel.getAxis(AxisType.X);
         xAxis.setLabel("Dieux");
 
@@ -81,10 +81,10 @@ public class ChartView implements Serializable {
 
     private void createPieModel() {
         pieModel = new PieChartModel();
-        for(Race r : daoRace.findAll()){
-            pieModel.set(r.getNom(),r.getJoueurCollection().size());
+        for (Race r : daoRace.findAll()) {
+            pieModel.set(r.getNom(), r.getJoueurCollection().size());
         }
-     
+
         pieModel.setTitle("Le camembert des races jouées");
         pieModel.setLegendPosition("w");
     }

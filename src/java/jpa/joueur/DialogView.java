@@ -38,7 +38,7 @@ public class DialogView implements Serializable{
     public void killJoueur(Joueur j) {
         jdao.killJoueur(j);
         this.listJoueur = jdao.findAll();
-        addMessage("Dieu Modifié", "La modification a bien été prise en compte.");
+        addMessage("Vous avez tué un héros", j.getNom()+" n'est désormais plus de notre monde !");
         
         
     }

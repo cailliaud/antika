@@ -11,7 +11,7 @@
         
     </h:head>
     <h:body    >
-        
+        <p:growl showDetail="true"/>
         <p:layout fullPage="true"  >
             <p:layoutUnit position="center" styleClass="AntikaBackground" >
 
@@ -30,7 +30,7 @@
                     <table align="center" border="0" width="40%">
                         <tr>
                             <td>
-                                <p:commandButton style="text-align: center; width: 100%;" value="Liste des Joueurs" action="listJoueurs"/>
+                                <p:commandButton style="text-align: center; width: 100%;" value="Liste des Joueurs" action="#{mainControler.goToListJoueurView()}"/>
                             </td>
                             <td>
                                 <p:commandButton style="text-align: center; width: 100%;" value="Personnage"  action="#{mainControler.goToCreatePerso()}">
@@ -38,18 +38,18 @@
                                 </p:commandButton>
                             </td>
                             <td>
-                                <p:commandButton style="text-align: center; width: 100%;" value="Game Map" action="antikaMap"/>
+                                <p:commandButton style="text-align: center; width: 100%;" value="Game Map" action="#{mainControler.goToMapAntika()}"/>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <p:commandButton style="text-align: center; width: 100%;"  value="Administration" action="menuAdmin"/>
+                                <p:commandButton style="text-align: center; width: 100%;"  value="Administration" action="#{mainControler.goToAdminMenu()}"/>
                             </td>
                             <td>
-                                <p:commandButton style="text-align: center; width: 100%;"  value="Statistiques" action="stats"/>
+                                <p:commandButton style="text-align: center; width: 100%;"  value="Statistiques" action="#{mainControler.goStats()}"/>
                             </td>
                             <td>
-                                <p:commandButton style="text-align: center; width: 100%;" value="Infos" action="infos"/>
+                                <p:commandButton style="text-align: center; width: 100%;" value="Infos" action="#{mainControler.goInfos()}"/>
                             </td>
                           
                         </tr>

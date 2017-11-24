@@ -25,13 +25,14 @@
                     <p:growl id="growl" showDetail="true" />
 
                     <h:panelGrid columns="1"  columnClasses="left,right" style="width:100%">
+                        <p:chart type="bar" model="#{chartView.barModel}" style="width:100%; height:400px">
+                            <p:ajax event="itemSelect" listener="#{chartView.itemSelect}" update="growl" />
+                        </p:chart> 
                         <p:chart type="pie" model="#{chartView.pieMode1}" style="width:100%;height:400px">
                             <p:ajax event="itemSelect" listener="#{chartView.itemSelect}" update="growl" />
                         </p:chart>
 
-                        <p:chart type="bar" model="#{chartView.barModel}" style="width:100%; height:400px">
-                            <p:ajax event="itemSelect" listener="#{chartView.itemSelect}" update="growl" />
-                        </p:chart>  
+
                     </h:panelGrid>
 
                 </h:form>

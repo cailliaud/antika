@@ -13,7 +13,7 @@
 
     </h:head>
     <h:body> 
-        <p:growl id="growl1" />
+        <p:growl id="growl1" showDetail="true" />
         <p:layout fullPage="true" >
             <p:layoutUnit position="north" styleClass="AntikaBackgroundNorth" >
                 <h1 style="text-align: center">Panneau d'administration</h1>
@@ -26,9 +26,11 @@
                         <tr>
                             <td><p:commandButton value="Gérer les Dieux"  action="gestionDieux"/></td>
                         </tr>
-
+                        <tr>
+                            <td><p:commandButton value="Gérer les Talents" update="growl1" action="#{mainControler.goToUnemplementedPage()}"/></td>
+                        </tr>
                     </table>
-                    
+
                 </h:form>
             </p:layoutUnit>
             <p:layoutUnit position="south" styleClass="AntikaBackgroundSouth" >
@@ -37,6 +39,7 @@
                         <tr>
                             <td><p:commandButton value="Retour"  action="#{mainControler.goToIndex()}"/></td>
                         </tr>
+
 
                     </table>
                 </h:form>
